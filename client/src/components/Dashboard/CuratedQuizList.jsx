@@ -18,6 +18,7 @@ const CuratedQuizList = (props) => {
             <th scope="col">Total Participant</th>
             <th scope="col">Total Flawless</th>
             <th scope="col">Quiz Code</th>
+            <th scope="col">Leaderboard</th>
           </tr>
         </thead>
         <tbody>

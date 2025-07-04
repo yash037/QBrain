@@ -1,7 +1,9 @@
 const Joi = require("@hapi/joi");
 
 const Quiz = require("../model/Quiz");
+const Quizzer = require("../model/Quizzer");
 const QuizzerController = require("./QuizzerController");
+const Leaderboard = require("../model/Leaderboard");
 
 const QuizController = {
   createQuiz: async (req, res, next) => {
@@ -108,6 +110,19 @@ const QuizController = {
           user_id,
           solved === questions.length
         );
+
+        // get user's name for leaderboard
+        const quizzer = await Quizzer.findById(user_id);
+        const name = quizzer ? quizzer.name : "Anonymous";
+
+        // create leaderboard entry
+        await Leaderboard.create({
+          quizId: quiz._id,
+          userId: user_id,
+          name: name,
+          score: solved,
+          flawless: solved === questions.length,
+        });
 
         const response = {
           user_id: user_id,

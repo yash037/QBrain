@@ -11,6 +11,7 @@ import QuizDone from "./components/QuizBuilder/QuizDone";
 import QuizFetcher from "./components/QuizTaker/QuizFetcher";
 import QuizTaker from "./components/QuizTaker/QuizTaker";
 import QuizTaken from "./components/QuizTaker/QuizTaken";
+import Leaderboard from "./components/Leaderboard/Leaderboard";
 
 class App extends Component {
   constructor(props) {
@@ -205,6 +206,18 @@ class App extends Component {
             path="/quiz-taken"
             render={(props) => (
               <QuizTaken
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                checkLogin={this.checkLogin}
+                onLogout={this.handleLogout}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/leaderboard/:quizId"
+            render={(props) => (
+              <Leaderboard
                 {...props}
                 isLoggedIn={this.state.isLoggedIn}
                 checkLogin={this.checkLogin}

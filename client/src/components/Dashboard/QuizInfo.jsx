@@ -1,6 +1,7 @@
 import React from "react";
 import DateUtil from "../../Utils/DateUtil";
 import Emoji from "../Layout/Emoji";
+import { Link } from "react-router-dom";
 
 const QuizInfo = (props) => {
   return (
@@ -59,6 +60,21 @@ const QuizInfo = (props) => {
             <Emoji emoji="🧲" />
           </span>
           {props.id}
+        </td>
+        <td>
+          <Link
+            to={`/leaderboard/${props.id}`}
+            style={{
+              background: "#6366f1",
+              color: "white",
+              padding: "5px 10px",
+              borderRadius: "8px",
+              fontSize: "13px",
+              textDecoration: "none",
+            }}
+          >
+            View
+          </Link>
         </td>
       </tr>
       {/* <div className="row">

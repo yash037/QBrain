@@ -3,6 +3,7 @@ const router = express.Router();
 const AuthController = require("../controller/AuthController");
 const QuizzerController = require("../controller/QuizzerController");
 const QuizController = require("../controller/QuizController");
+const LeaderboardController = require("../controller/LeaderbaordController");
 
 router.post(
   "/create/:user_id",
@@ -35,6 +36,11 @@ router.post(
   async (req, res, next) => {
     await QuizController.submitQuizAnswer(req, res, next);
   }
+);
+
+router.get(
+  "/leaderboard/:quizId", 
+  LeaderboardController.getByQuiz
 );
 
 module.exports = router;

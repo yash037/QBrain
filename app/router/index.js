@@ -6,6 +6,7 @@ const DBConnection = require("../../database/DBConnection");
 const auth = require("./auth");
 const quizzer = require("./quizzer");
 const quiz = require("./quiz");
+const leaderboard = require("./leaderboard");
 
 // Connect to database
 DBConnection.dbConnect();
@@ -19,5 +20,6 @@ router.get("/api", (req, res) => {
 router.use("/api/auth", auth);
 router.use("/api/quizzers", quizzer);
 router.use("/api/quizzes", quiz);
+router.use("/api/leaderboard", leaderboard);
 
 module.exports = router;

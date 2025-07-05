@@ -12,6 +12,7 @@ import QuizFetcher from "./components/QuizTaker/QuizFetcher";
 import QuizTaker from "./components/QuizTaker/QuizTaker";
 import QuizTaken from "./components/QuizTaker/QuizTaken";
 import Leaderboard from "./components/Leaderboard/Leaderboard";
+import QuizAI from "./components/QuizAi/QuizAI";
 
 class App extends Component {
   constructor(props) {
@@ -225,6 +226,19 @@ class App extends Component {
               />
             )}
           />
+          <Route
+            exact
+            path="/quiz-ai"
+            render={(props) => (
+              <QuizAI
+                {...props}
+                isLoggedIn={this.state.isLoggedIn}
+                checkLogin={this.checkLogin}
+                onLogout={this.handleLogout}
+                user={this.state.user}
+              />
+            )}
+          />          
         </Switch>
       </Router>
     );

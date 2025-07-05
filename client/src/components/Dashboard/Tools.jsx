@@ -39,15 +39,23 @@ const Tools = (props) => {
         </div>
         <div className="card">
           <div className="tooltip-wrapper">
-            <button disabled="disabled" className="tool-button grayed">
-              <Emoji emoji="🔥" /> Survival (Pro)
-            </button>
+            <Link to="/quiz-ai">
+              <button className="tool-button">
+                <Emoji emoji="🧠" /> AI Challenge (Pro)
+              </button>
+            </Link>
+            <ToolTip
+              emoji="🤖"
+              title="It learns. It strikes."
+              description="Face a quiz forged by the mind of a machine. Adapt or perish."
+            />
           </div>
         </div>
+
         <div className="card">
           <div className="tooltip-wrapper">
             <button disabled="disabled" className="tool-button grayed">
-              <Emoji emoji="🩸" /> Slay 'em (Pro)
+              <Emoji emoji="🔥" /> Survival (Pro)
             </button>
           </div>
         </div>
